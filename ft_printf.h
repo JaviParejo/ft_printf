@@ -6,7 +6,7 @@
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:01:26 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/11/24 20:01:38 by jparejo-         ###   ########.fr       */
+/*   Updated: 2021/11/25 20:18:25 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,15 @@ void		ft_putnbr_fd(int n, int fd);
 
 void		print_s(char *s, int *n);
 
-void		print_x(unsigned int num, int *n);
+void		print_x(unsigned long int num, char l, int *n);
 
-char		*digtohex(char *dir, unsigned int num, int *n);
+void		print_d(int d, int *n);
+
+void		print_u(int u, int *n);
+
+char		*digtohex(char *dir, unsigned long int num, int *n);
+
+void		tolow(char *dir, char l, int count);
 
 int			check_args(const char *a, int next, va_list arg);
 

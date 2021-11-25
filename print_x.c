@@ -6,17 +6,17 @@
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 19:09:34 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/11/24 20:13:42 by jparejo-         ###   ########.fr       */
+/*   Updated: 2021/11/25 20:27:08 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*digtohex(char *dir, unsigned int num, int *n)
+char	*digtohex(char *dir, unsigned long int num, int *n)
 {
 	char	ch;
-	int 	count;
-	int 	res;
+	int		count;
+	int		res;
 
 	count = 0;
 	res = 0;
@@ -38,33 +38,45 @@ char	*digtohex(char *dir, unsigned int num, int *n)
 		ch = num + 55;
 	dir[count] = ch;
 	*n = *n + 1;
-	return(dir);
+	return (dir);
 }
 
-void	print_x(unsigned int num, int next, int *n)
+void	tolow(char *dir, char l, int count)
+{
+	if (l == 'x' || l == 'p')
+	{
+		if (dir[count] >= 'A' && dir[count] <= 'F')
+			dir[count] += 32;
+	}
+	write(1, dir + count, 1);
+}
+
+void	print_x(unsigned long int num, char l, int *n)
 {
 	int		count;
+	unsigned long int	d;
 	char	*dir;
 
 	count = 0;
-	while (num >= 16)
+	d = num;
+	while (d >= 16)
 	{	
-		num = num / 16;
+		d = d / 16;
 		count++;
 	}
 	dir = malloc(sizeof(char) * (count + 1));
 	dir = digtohex(dir, num, n);
-	// while (dir[count] != '\0')
-	// 	count++;
-	// while (count >= 0)
-	// {
-	// 	if (a[next] == 'x')
-	// 	{
-	// 		if (dir[count] >= 'A' && dir[count] <= 'F')
-	// 			dir[count] += 32;
-	// 	}
-	// 	write(1, dir+count, 1);
-	// 	count--;
-	// }
+	while (dir[count] != '\0')
+		count++;
+	if (l == 'p')
+	{
+		*n = *n + 3;
+		write(1, "0x", 2);
+	}
+	while (count >= 0)
+	{
+		tolow(dir, l, count);
+		count--;
+	}
 	free(dir);
 }

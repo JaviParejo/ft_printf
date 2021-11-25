@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_s.c                                          :+:      :+:    :+:   */
+/*   print_d.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 18:42:42 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/11/25 18:34:10 by jparejo-         ###   ########.fr       */
+/*   Created: 2021/11/25 17:47:44 by jparejo-          #+#    #+#             */
+/*   Updated: 2021/11/25 17:50:53 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_s(char *s, int *n)
+void	print_d(int d, int *n)
 {
-	int	c;
-
-	c = 0;
-	if (s == NULL)
+	ft_putnbr_fd(d, 1);
+	if (d <= 0)
 	{
-		write(1, "(null)", 6);
-		*n = *n + 6;
+		d = -d;
+		d++;
 	}
-	else
-	{
-		while (s[c] != '\0')
-		{
-			ft_putchar_fd(s[c], 1);
-			c++;
-			*n = *n + 1;
-		}
+	while (d > 0)
+	{	
+		d = d / 10;
+		*n = *n + 1;
 	}
 }
