@@ -6,13 +6,13 @@
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:52:23 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/11/25 19:18:13 by jparejo-         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:36:25 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_u(int u, int *n)
+void	print_u(unsigned int u, int *n)
 {
 	if (u >= 10)
 	{

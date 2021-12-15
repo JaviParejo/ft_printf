@@ -6,7 +6,7 @@
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 19:09:34 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/11/25 20:27:08 by jparejo-         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:36:22 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ void	tolow(char *dir, char l, int count)
 
 void	print_x(unsigned long int num, char l, int *n)
 {
-	int		count;
+	int					count;
 	unsigned long int	d;
-	char	*dir;
+	char				*dir;
 
 	count = 0;
 	d = num;
@@ -66,11 +66,9 @@ void	print_x(unsigned long int num, char l, int *n)
 	}
 	dir = malloc(sizeof(char) * (count + 1));
 	dir = digtohex(dir, num, n);
-	while (dir[count] != '\0')
-		count++;
 	if (l == 'p')
 	{
-		*n = *n + 3;
+		*n = *n + 2;
 		write(1, "0x", 2);
 	}
 	while (count >= 0)

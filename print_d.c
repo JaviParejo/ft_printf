@@ -6,23 +6,25 @@
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:47:44 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/11/25 17:50:53 by jparejo-         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:36:20 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_d(int d, int *n)
+void	print_d(int num, int *n)
 {
-	ft_putnbr_fd(d, 1);
-	if (d <= 0)
+	ft_putnbr_fd(num, 1);
+	if (num == -2147483648)
+		*n = *n + 11;
+	else if (num <= 0)
 	{
-		d = -d;
-		d++;
+		num = -num;
+		*n = *n + 1;
 	}
-	while (d > 0)
+	while (num > 0)
 	{	
-		d = d / 10;
+		num = num / 10;
 		*n = *n + 1;
 	}
 }

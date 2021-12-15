@@ -6,7 +6,7 @@
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:51:55 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/11/25 20:19:43 by jparejo-         ###   ########.fr       */
+/*   Updated: 2021/12/15 16:21:30 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ int	check_args(const char *a, int next, va_list arg)
 	return (n);
 }
 
+void	leaks(void)
+{
+	system("leaks a.out");
+}
+
 int	ft_printf(const char *l, ...)
 {	
 	int		count;
@@ -74,13 +79,7 @@ int	ft_printf(const char *l, ...)
 
 int	main(void)
 {
-	int		a;
-	int		b;
-	// void	*s;
-
-	// s = "e";
-	a = ft_printf (" %p ", 2045453);
-	printf (", %d\n", a);
-	b = printf (" %p ", 2045453);
-	printf (", %d\n", b);
+	atexit(leaks);
+	ft_printf("");
+	return(0);
 }

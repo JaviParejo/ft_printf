@@ -6,7 +6,7 @@
 /*   By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:01:26 by jparejo-          #+#    #+#             */
-/*   Updated: 2021/11/25 20:18:25 by jparejo-         ###   ########.fr       */
+/*   Updated: 2021/12/15 16:21:24 by jparejo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void		print_x(unsigned long int num, char l, int *n);
 
 void		print_d(int d, int *n);
 
-void		print_u(int u, int *n);
+void		print_u(unsigned int u, int *n);
 
 char		*digtohex(char *dir, unsigned long int num, int *n);
 

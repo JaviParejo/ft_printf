@@ -6,7 +6,7 @@
 #    By: jparejo- <jparejo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 13:14:05 by jparejo-          #+#    #+#              #
-#    Updated: 2021/11/25 19:52:14 by jparejo-         ###   ########.fr        #
+#    Updated: 2021/12/15 16:21:14 by jparejo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OBJS			= $(SRCS:.c=.o)
 
 CC				= gcc
 RM				= rm -f
-CFLAGS			= 
+CFLAGS			= -Wall -Wextra -Werror
 NAME			= libftprintf.a
 
 all:			$(NAME)
